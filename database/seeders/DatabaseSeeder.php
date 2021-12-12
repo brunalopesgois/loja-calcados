@@ -17,7 +17,9 @@ class DatabaseSeeder extends Seeder
             LotSeeder::class,
             SellerSeeder::class,
             CustomerSeeder::class,
-            ProductSeeder::class
+            ProductSeeder::class,
+            ColorSeeder::class,
+            ProductColorSeeder::class
         ]);
     }
 }

@@ -17,29 +17,19 @@ class ProductSeeder extends Seeder
         DB::table('products')->insert([
             'name' => 'Tênis A',
             'lot_id' => 1,
-            'color' => 'Vermelho',
-            'description' => 'Um belo tênis vermelho'
-        ]);
-
-        DB::table('products')->insert([
-            'name' => 'Tênis A',
-            'lot_id' => 1,
-            'color' => 'Azul',
-            'description' => 'Um belo tênis azul'
+            'description' => 'Um belo tênis da marca A'
         ]);
 
         DB::table('products')->insert([
             'name' => 'Sapatilha X',
             'lot_id' => 2,
-            'color' => 'Bege',
-            'description' => 'Um bela sapatilha bege'
+            'description' => 'Um bela sapatilha da marca B'
         ]);
 
         DB::table('products')->insert([
             'name' => 'Chinelo Alpha',
             'lot_id' => 3,
-            'color' => 'Amarelo',
-            'description' => 'Um belo chinelo amarelo'
+            'description' => 'Um belo chinelo da marca Alpha'
         ]);
     }
 }
