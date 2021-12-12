@@ -18,6 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('name')->unique();
             $table->integer('lot_id');
             $table->string('description');
+            $table->decimal('price');
 
             $table->foreign('lot_id')->references('id')->on('lots');
         });

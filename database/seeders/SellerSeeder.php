@@ -18,13 +18,15 @@ class SellerSeeder extends Seeder
         DB::table('sellers')->insert([
             'name' => 'João Carvalho',
             'email' => 'vendedor1@loja.com',
-            'password' => Hash::make('123456')
+            'password' => Hash::make('123456'),
+            'sales_number' => 1
         ]);
 
         DB::table('sellers')->insert([
             'name' => 'Emilly Melo',
             'email' => 'vendedor2@loja.com',
-            'password' => Hash::make('654321')
+            'password' => Hash::make('654321'),
+            'sales_number' => 3
         ]);
     }
 }
