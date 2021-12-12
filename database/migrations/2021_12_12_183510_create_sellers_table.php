@@ -18,7 +18,7 @@ class CreateSellersTable extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
-            $table->string('sales_number');
+            $table->integer('sales_number')->default(0);
         });
     }
 
