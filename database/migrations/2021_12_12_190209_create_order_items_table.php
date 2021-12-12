@@ -17,6 +17,7 @@ class CreateOrderItemsTable extends Migration
             $table->increments('id');
             $table->integer('product_id');
             $table->integer('order_id');
+            $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreign('order_id')->references('id')->on('orders');

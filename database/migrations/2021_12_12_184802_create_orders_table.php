@@ -18,6 +18,7 @@ class CreateOrdersTable extends Migration
             $table->string('customer_document');
             $table->integer('seller_id');
             $table->decimal('amount');
+            $table->timestamps();
 
             $table->foreign('customer_document')->references('document')->on('customers');
             $table->foreign('seller_id')->references('id')->on('sellers');

@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->integer('lot_id');
             $table->string('description');
             $table->decimal('price');
+            $table->timestamps();
 
             $table->foreign('lot_id')->references('id')->on('lots');
         });
