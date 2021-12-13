@@ -23,7 +23,7 @@ class ProductController extends Controller
         );
 
         if (is_null($products)) {
-            return response()->noContent();
+            return response()->json([], 204);
         }
 
         return response()->json($products);
