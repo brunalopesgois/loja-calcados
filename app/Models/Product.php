@@ -17,6 +17,7 @@ class Product extends Model
     protected $fillable = [
         'name',
         'lot_id',
+        'color',
         'description',
         'price'
     ];
@@ -30,9 +31,4 @@ class Product extends Model
         'created_at',
         'updated_at'
     ];
-
-    public function colors()
-    {
-        return $this->belongsToMany(Color::class, 'product_colors');
-    }
 }

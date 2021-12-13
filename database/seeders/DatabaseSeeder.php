@@ -18,8 +18,6 @@ class DatabaseSeeder extends Seeder
             SellerSeeder::class,
             CustomerSeeder::class,
             ProductSeeder::class,
-            ColorSeeder::class,
-            ProductColorSeeder::class,
             OrderSeeder::class,
             OrderItemSeeder::class
         ]);
