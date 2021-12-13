@@ -31,7 +31,7 @@ class ProductController extends Controller
 
     public function show(int $id): JsonResponse
     {
-        $product = $this->repository->find($id);
+        $product = $this->repository->findById($id);
 
         if (is_null($product)) {
             return response()->json([], 204);

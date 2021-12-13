@@ -9,7 +9,7 @@ interface ProductRepository
 {
     public function all(?int $perPage): object;
 
-    public function find(int $id): Collection;
+    public function findById(int $id): Product;
 
     public function update(string $name, int $lotId, string $description, float $price): Product;
 }
