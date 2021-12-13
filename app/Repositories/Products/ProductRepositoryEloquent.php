@@ -15,11 +15,19 @@ class ProductRepositoryEloquent implements ProductRepository
         $this->product = $product;
     }
 
-    public function all(?int $perPage)
+    public function all(?int $perPage): object
     {
         return $this->product
             ->with('colors')
             ->paginate($perPage ?? 5);
+    }
+
+    public function find(int $id): Collection
+    {
+        return $this->product
+            ->with('colors')
+            ->where('id', $id)
+            ->get();
     }
 
     public function update(string $name, int $lotId, string $description, float $price): Product

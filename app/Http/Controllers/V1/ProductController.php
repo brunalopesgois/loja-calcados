@@ -28,4 +28,15 @@ class ProductController extends Controller
 
         return response()->json($products);
     }
+
+    public function show(int $id): JsonResponse
+    {
+        $product = $this->repository->find($id);
+
+        if (is_null($product)) {
+            return response()->json([], 204);
+        }
+
+        return response()->json($product);
+    }
 }
