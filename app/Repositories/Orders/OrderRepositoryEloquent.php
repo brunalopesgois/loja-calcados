@@ -60,7 +60,7 @@ class OrderRepositoryEloquent implements OrderRepository
 
     public function allOrdersWithItems(?int $perPage, ?array $sort)
     {
-        $ordersWithItems = $this->model->with('orderItems');
+        $ordersWithItems = $this->model->with('products');
 
         if ($sort) {
             $ordersWithItems = $this->ordenate($ordersWithItems, $sort);
