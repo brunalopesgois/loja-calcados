@@ -28,4 +28,15 @@ class OrderController extends Controller
 
         return response()->json($orders);
     }
+
+    public function show(int $id): JsonResponse
+    {
+        $order = $this->repository->findById($id);
+
+        if (is_null($order)) {
+            return response()->json([], 204);
+        }
+
+        return response()->json($order);
+    }
 }

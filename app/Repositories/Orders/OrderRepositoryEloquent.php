@@ -21,7 +21,7 @@ class OrderRepositoryEloquent implements OrderRepository
 
     public function findById(int $id): Order
     {
-        //
+        return $this->model->find($id);
     }
 
     public function update(int $id, string $document, int $sellerId): Order
