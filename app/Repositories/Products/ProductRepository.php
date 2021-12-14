@@ -11,5 +11,12 @@ interface ProductRepository
 
     public function findById(int $id): Product;
 
-    public function update(string $name, int $lotId, string $description, float $price): Product;
+    public function update(
+        int $id,
+        string $name,
+        int $lotId,
+        string $color,
+        string $description,
+        float $price
+    ): Product;
 }
