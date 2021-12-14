@@ -4,6 +4,7 @@ namespace App\Http\Controllers\V1;
 
 use App\Exceptions\NotFoundException;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProductRequest;
 use App\Repositories\Products\ProductRepository;
 use Exception;
 use Illuminate\Http\JsonResponse;
@@ -42,16 +43,18 @@ class ProductController extends Controller
         return response()->json($product);
     }
 
-    public function update(int $id, Request $request): JsonResponse
+    public function update(int $id, ProductRequest $request): JsonResponse
     {
+        $validRequest = $request->validated();
+
         try {
             $product = $this->repository->update(
                 $id,
-                $request->get('name'),
-                $request->get('lot_id'),
-                $request->get('color'),
-                $request->get('description'),
-                $request->get('price')
+                $validRequest['name'],
+                $validRequest['lot_id'],
+                $validRequest['color'],
+                $validRequest['description'],
+                $validRequest['price']
             );
 
             return response()->json($product);
