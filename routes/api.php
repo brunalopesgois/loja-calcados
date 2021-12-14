@@ -20,12 +20,14 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/products')->group(function () {
-    Route::get('', [ProductController::class, 'index']);
-    Route::get('/{id}', [ProductController::class, 'show']);
-    Route::put('/{id}', [ProductController::class, 'update']);
-});
+Route::prefix('/v1')->group(function () {
+    Route::prefix('/products')->group(function () {
+        Route::get('', [ProductController::class, 'index']);
+        Route::get('/{id}', [ProductController::class, 'show']);
+        Route::put('/{id}', [ProductController::class, 'update']);
+    });
 
-Route::prefix('/orders')->group(function () {
-    Route::get('', [OrderController::class, 'index']);
+    Route::prefix('/orders')->group(function () {
+        Route::get('', [OrderController::class, 'index']);
+    });
 });
