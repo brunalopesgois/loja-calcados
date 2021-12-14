@@ -61,4 +61,18 @@ class OrderController extends Controller
 
         return response()->json($order);
     }
+
+    public function report(Request $request): JsonResponse
+    {
+        $detailedOrders = $this->repository->allOrdersWithItems(
+            $request->query('per_page'),
+            $request->query('sort')
+        );
+
+        if (is_null($detailedOrders)) {
+            return response()->json([], 204);
+        }
+
+        return response()->json($detailedOrders);
+    }
 }

@@ -58,8 +58,27 @@ class OrderRepositoryEloquent implements OrderRepository
         return $order;
     }
 
-    public function allOrdersWithItems(int $perPage, array $sort)
+    public function allOrdersWithItems(?int $perPage, ?array $sort)
     {
-        //
+        $ordersWithItems = $this->model->with('orderItems');
+
+        if ($sort) {
+            $ordersWithItems = $this->ordenate($ordersWithItems, $sort);
+        }
+
+        return $ordersWithItems->paginate($perPage ?? 5);
+    }
+
+    private function ordenate(object $ordersWithItems, array $sort)
+    {
+        if (array_key_exists('amount', $sort)) {
+            $ordersWithItems = $ordersWithItems->orderBy('amount', $sort['amount']);
+        }
+
+        if (array_key_exists('date', $sort)) {
+            $ordersWithItems = $ordersWithItems->orderBy('created_ad', $sort['date']);
+        }
+
+        return $ordersWithItems;
     }
 }

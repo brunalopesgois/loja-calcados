@@ -12,5 +12,5 @@ interface OrderRepository
 
     public function update(int $id, string $document, int $sellerId): Order;
 
-    public function allOrdersWithItems(int $perPage, array $sort);
+    public function allOrdersWithItems(?int $perPage, ?array $sort);
 }

@@ -32,4 +32,6 @@ Route::prefix('/v1')->group(function () {
         Route::get('/{id}', [OrderController::class, 'show']);
         Route::put('/{id}', [OrderController::class, 'update']);
     });
+
+    Route::get('reports/orders', [OrderController::class, 'report']);
 });
