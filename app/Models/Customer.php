@@ -9,6 +9,8 @@ class Customer extends Model
 {
     use HasFactory;
 
+    public $incrementing = false;
+
     /**
      * Indicates if the model should be timestamped.
      *
