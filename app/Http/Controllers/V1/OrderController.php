@@ -32,7 +32,7 @@ class OrderController extends Controller
         return response()->json($orders);
     }
 
-    public function show(int $id): JsonResponse
+    public function show(Request $request, int $id): JsonResponse
     {
         $order = $this->repository->findById($id);
 
