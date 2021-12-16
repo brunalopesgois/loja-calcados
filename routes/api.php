@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\V1\AuthController;
 use App\Http\Controllers\V1\OrderController;
 use App\Http\Controllers\V1\OrderItemController;
 use App\Http\Controllers\V1\ProductController;
@@ -21,7 +22,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::prefix('/v1')->group(function () {
+Route::middleware('auth:api')->prefix('/v1')->group(function () {
     Route::prefix('/products')->group(function () {
         Route::get('', [ProductController::class, 'index']);
         Route::get('/{id}', [ProductController::class, 'show']);
@@ -42,3 +43,5 @@ Route::prefix('/v1')->group(function () {
         Route::get('/orders', [OrderController::class, 'report']);
     });
 });
+
+Route::post('/login', [AuthController::class, 'login']);
