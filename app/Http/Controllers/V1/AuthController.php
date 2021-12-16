@@ -16,7 +16,7 @@ class AuthController extends Controller
         $token = Auth::guard()->attempt($credentials);
 
         if (!$token) {
-            return response()->json(['message' => 'Unauthorized'], 401);
+            return response()->json(['message' => 'Invalid email or password'], 401);
         }
 
         return response()->json(['access_token' => $token]);
