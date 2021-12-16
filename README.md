@@ -11,6 +11,8 @@ API Rest desenvolvida com Laravel, com o propósito de atender uma loja de calç
 
 - Clonar este repositório.
 
+- Entrar no diretório e criar um arquivo .env
+
 - Executar os comandos:
 
 ```
