@@ -25,7 +25,7 @@ php artisan serve
 
 ## Endpoints
 
-É necessário estar logado como vendedor para acessar as rotas.
+É necessário estar logado como vendedor para acessar as rotas, primeiro acesse a seguinte rota:
 
 ### Login
 
@@ -40,6 +40,12 @@ POST - http://localhost:8000/api/login
     "email": "vendedor1@loja.com",
     "password": "123456"
 }
+```
+
+Ao acessar a rota acima, será gerado um **access_token**. Esse token deverá ser enviado como cabeçalho em todas as próximas requisições, dessa forma:
+
+```
+Authorization: Bearer {access_token}
 ```
 
 ### Listar produtos:
